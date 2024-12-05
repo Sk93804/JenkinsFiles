@@ -1,17 +1,20 @@
 pipeline{
     agent any
-    parameters{
-      string(name: 'ENVIRONMENT', defaultValue: 'Prod'  )
+    triggers{
+        cron('* * * * *')
     }
+    // parameters{
+    //   string(name: 'ENVIRONMENT', defaultValue: 'Prod'  )
+    // }
     stages{
         stage('checkout'){
            steps{ echo "this is code checkout stage"
       }
         }
         stage('build'){
-            when{
-                expression { params.ENVIRONMENT == 'Prod'  }
-            }
+            // when{
+            //     expression { params.ENVIRONMENT == 'Prod'  }
+            // }
             steps{
                 echo "this is building stage"
             }
