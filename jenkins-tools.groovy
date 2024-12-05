@@ -1,18 +1,17 @@
-pipeline{
+pipeline {
     agent any
-    tools{
-        maven 'maven'
-    }
-    stages{
-        stage('checkout'){
-            steps{
-                echo "This is code checkout stage"
+    stages {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
             }
-        }
-        stage('Build'){
-            steps{
-                sh ''' mvn --version '''
-                       
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
             }
         }
     }
