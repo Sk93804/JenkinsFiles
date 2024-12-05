@@ -19,7 +19,7 @@ pipeline{
         }
         stage("Deploy"){
             when{
-               any off{ environment name: 'ENV', value: 'Production'
+               anyOf{ environment name: 'ENV', value: 'Production'
                         environment name: 'ENV', value: 'production' }
             }
             steps{
