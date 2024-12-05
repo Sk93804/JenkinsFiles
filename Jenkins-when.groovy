@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        ENV = 'production'
+    }
     stages{
         stage('Checkout'){
             steps{
@@ -10,11 +13,13 @@ pipeline{
             }
         }
         stage("Build"){
-            when{
-                 branch 'main'
-            }
             steps{
                 echo "Building"
+            }
+        }
+        stage("Deploy"){
+            when{
+                environment name: 'ENV', value: 'production'
             }
         }
     }
