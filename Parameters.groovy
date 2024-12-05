@@ -1,7 +1,7 @@
 pipeline{
     agent any
-    triggers{
-        cron('* * * * *')
+    // triggers{
+    //     cron('* * * * *')
     }
     // parameters{
     //   string(name: 'ENVIRONMENT', defaultValue: 'Prod'  )
