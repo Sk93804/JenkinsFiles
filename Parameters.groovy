@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-      choice(name: 'Select the environment to run this job', choices: ['Dev', 'QA', 'Prod'])
+      choice(name: 'ENVIRONMENT', choices: ['Dev', 'QA', 'Prod'])
     }
     stages{
         stage('checkout'){
@@ -9,6 +9,9 @@ pipeline{
       }
         }
         stage('build'){
+            when{
+                expression { params.ENVIRONMENT == 'Prod'  }
+            }
             steps{
                 echo "this is building stage"
             }
