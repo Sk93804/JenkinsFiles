@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        booleanParam(name: 'Do  you want to  run this job?' defaultValue: true)
+        booleanParam(name: 'Do  you want to  run this job?', defaultValue: true)
     }
     stages{
         stage('chekout'){
