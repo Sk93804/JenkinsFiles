@@ -20,7 +20,7 @@ pipeline{
         stage("Deploy"){
             when{
                 expression{
-                    ENV ==~ /(production|Production)/
+                    ENV ==~ /(production|PRoduction)/
                 }
                anyOf{ environment name: 'ENV', value: 'Production'
                         environment name: 'ENV', value: 'production' }
