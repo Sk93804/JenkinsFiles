@@ -6,6 +6,7 @@ pipeline{
                 branch 'main'
             }
             steps{
+               echo "Current branch: ${env.BRANCH_NAME}"
               git branch: 'main',
                     credentialsId: 'git',
                     url: 'https://github.com/Sk93804/Git-practice.git'
