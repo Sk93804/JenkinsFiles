@@ -21,6 +21,9 @@ pipeline{
             when{
                 environment name: 'ENV', value: 'production'
             }
+            steps{
+                echo "Deploying to production"
+            }
         }
     }
 }
