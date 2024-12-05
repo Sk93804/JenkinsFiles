@@ -1,5 +1,9 @@
 Pipeline{
     agent any
+    environment{
+        APP = 'Frontend'
+        DB_URL = '192.64.17.1'
+    }
     stages{
         stage('checkout'){
             steps{
@@ -12,6 +16,10 @@ Pipeline{
             steps{
             echo "Building the files..."
             }
+        }
+        stage('Accessing the ENV variables')
+        steps{
+            echo "${env.APP}: ${env.DB_URL}"
         }
     }
 }
