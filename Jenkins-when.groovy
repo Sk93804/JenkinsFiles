@@ -5,7 +5,7 @@ pipeline{
             steps{
               git branch: 'main',
                     credentialsId: 'git',
-                    url: 'https://github.com/Sk93804/Git-practice.git'
+                    url: 'https://github.com/Sk93804/Test.git'
               echo "checked out the code from the repository"
             }
         }
