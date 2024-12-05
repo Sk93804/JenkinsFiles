@@ -19,7 +19,8 @@ pipeline{
         }
         stage("Deploy"){
             when{
-                environment name: 'ENV', value: 'Production'
+               any off{ environment name: 'ENV', value: 'Production'
+                        environment name: 'ENV', value: 'production' }
             }
             steps{
                 echo "Deploying to production"
