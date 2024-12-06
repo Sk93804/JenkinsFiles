@@ -11,13 +11,14 @@ pipeline {
                 echo "Checkout stage"
             }
         }
-        stage('Build')
+        stage('Build'){
         steps{
              echo "Job Name: ${env.JOB_NAME}"
                 echo "Build Number: ${env.BUILD_NUMBER}"
                 echo "Workspace: ${env.WORKSPACE}"
                 echo "Git Branch: ${env.GIT_BRANCH}"
                 echo "Triggered By: ${env.BUILD_USER}"
+        }
         }
     }
 }
