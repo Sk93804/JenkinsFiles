@@ -21,7 +21,7 @@ pipeline{
         failure{
             echo 'pipeline failed sending alerts...'
             emailtext{
-                to: 'sudheesh.zx@gmail.com'
+                to: 'sudheesh.zx@gmail.com',
                 subject: 'Build failed: ${env.JOB_NAME}',
                 body: "The Pipeline failed, check the logs for details"
             }
