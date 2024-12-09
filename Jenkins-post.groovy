@@ -20,10 +20,10 @@ pipeline{
     post{
         failure{
             echo 'pipeline failed sending alerts...'
-            emailtext{
+            emailtext(
                 to: 'sudheesh.zx@gmail.com',
                 subject: 'Build failed: ${env.JOB_NAME}',
-                body: "The Pipeline failed, check the logs for details"
+                body: "The Pipeline failed, check the logs for details")
             }
         }
     }
