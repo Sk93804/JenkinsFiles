@@ -4,6 +4,7 @@ pipeline{
         stage('checkout'){
             steps{
                 echo "This is checkout stage...."
+                sh 'exit 1'
             }
         }
         stage('Build'){
