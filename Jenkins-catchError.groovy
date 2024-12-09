@@ -4,7 +4,7 @@ pipeline{
         stage('Checkout'){
             steps{
             script{
-              catchError(buildResult: 'FAILURE', stageResult: 'SUCCESS'){
+              catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
               echo "This is code checkout stage"
               sh 'exit 1'
               }
