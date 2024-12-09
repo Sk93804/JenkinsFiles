@@ -20,7 +20,13 @@ pipeline{
     }
     post{
         failure{
+
             echo 'pipeline failed sending alerts...'
+            emailext(
+                to: 'sudheesh.zx@gmail.com',
+                subject: 'Build failed: ${env.JOB_NAME}',
+                body: "Build has failed . take the necessary actions.."
+            )
         }
     }
     
