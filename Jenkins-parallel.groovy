@@ -26,6 +26,16 @@ pipeline{
                         echo "Testing in firefox browser.."
                     }
                 }
+                stage('Opera'){
+                    steps{
+                        echo "Testing in the opera browser..."
+                    }
+                }
+            }
+        }
+        stage('Docker'){
+            steps{
+                echo "Pushing the docker image to the registry"
             }
         }
         stage('Deploy'){
