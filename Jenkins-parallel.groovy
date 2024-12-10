@@ -13,7 +13,10 @@ pipeline{
             parallel{
                 stage('Chrome'){
                     steps{
+                        catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
                         echo "Testing in chrome browser.."
+                        sh 'exit 1'
+                        }
                     }
                 }
                 stage('edgee'){
