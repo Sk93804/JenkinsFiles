@@ -8,6 +8,7 @@ pipeline{
             checkout scmGit(branches: [[name: '*/main']], 
             extensions: [], 
             userRemoteConfigs: [[url: 'https://github.com/jabedhasan21/java-hello-world-with-maven.git']])
+            sh ''' ls -lrt '''
     
             }
         }
