@@ -5,9 +5,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-            checkout scmGit(branches: [[name: '*/main']], 
-            extensions: [], 
-            userRemoteConfigs: [[url: 'https://github.com/jabedhasan21/java-hello-world-with-maven.git']])
+            git branch: 'main', url: 'https://github.com/Sk93804/JenkinsFiles.git'
             sh ''' pwd
             ls -lrt '''
     
