@@ -5,18 +5,21 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-            git branch: 'main', url: 'https://github.com/jabedhasan21/java-hello-world-with-maven.git'
-            sh ''' pwd
-            ls -lrt '''
+            git branch: 'main', url: 'https://github.com/Azure-Samples/tomcat10-jakartaee9.git'
     
             }
         }
         stage('build'){
             steps{
-                sh '''
-                cd  ./java-hello-world-with-maven.git 
-                mvn clean  package 
-                '''
+            sh ''' mvn clean package '''
+               
+            }
+        }
+        stage('Deploy'){
+            steps{
+                dir(target){
+                    sh ' scp target ubuntu@15.206.179.7:/home/ubuntu/tomcat10/webapps/ '
+                }
             }
         }
     }
