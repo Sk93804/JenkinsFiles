@@ -6,7 +6,7 @@ pipeline {
         GIT_BRANCH = 'main'
         SC_URL = 'https://github.com/Azure-Samples/tomcat10-jakartaee9.git'
         TOMCAT_URL = 'http://15.206.179.7:8080/manager/text'
-        WAR_FILE = '**/target/*.war' // Updated to use Jenkins wildcard syntax for files
+        WAR_FILE = '/home/ubuntu/tomcat10-jakartaee9/target/*.war' // Updated to use Jenkins wildcard syntax for files
         CONTEXT_PATH = '/helloworld'
         CREDENTIALS_ID = 'tomcat-credentials'
     }
@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 deploy adapters: [
-                    tomcat8(credentialsId: env.CREDENTIALS_ID, 
+                    tomcat9(credentialsId: env.CREDENTIALS_ID, 
                             path: '', 
                             url: env.TOMCAT_URL)
                 ], 
