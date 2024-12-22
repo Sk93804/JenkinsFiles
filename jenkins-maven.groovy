@@ -2,9 +2,15 @@ pipeline {
     agent {
         label 'Slave1'
     }
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    triggers{
+        pollSCM('*/2 * * * *')
+    }
     environment {
         GIT_BRANCH = 'main'
-        SC_URL = 'https://github.com/Azure-Samples/tomcat10-jakartaee9.git'
+        SC_URL = 'https://github.com/Sk93804/Maven-tomcat.git'
         TOMCAT_URL = 'http://15.206.179.7:8080/manager/text'
         WAR_FILE = '**/target/*.war' // Updated to use Jenkins wildcard syntax for files
         CONTEXT_PATH = '/helloworld'
@@ -19,6 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn clean package'
+
             }
         }
         stage('Deploy') {
