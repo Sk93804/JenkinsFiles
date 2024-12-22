@@ -18,7 +18,7 @@ pipeline{
         stage('Deploy'){
             steps{
                 dir(target){
-                    sh ' scp target ubuntu@15.206.179.7:/home/ubuntu/tomcat10/webapps/ '
+                    sh ' scp -r target ubuntu@15.206.179.7:/home/ubuntu/tomcat10/webapps/ '
                 }
             }
         }
