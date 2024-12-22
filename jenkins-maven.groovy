@@ -1,31 +1,28 @@
-pipeline{
+pipeline {
     agent {
         label 'Slave1'
     }
-    environment{
+    environment {
         GIT_BRANCH = 'main'
         SC_URL = 'https://github.com/Azure-Samples/tomcat10-jakartaee9.git'
         TOMCAT_URL = 'http://15.206.179.7:8080/manager/text'
-        WAR_FILE = 'home/ubuntu/tomcat10-jakartaee9/target/*.war'
+        WAR_FILE = '**/target/*.war' // Updated to use Jenkins wildcard syntax for files
         CONTEXT_PATH = '/helloworld'
         CREDENTIALS_ID = 'tomcat-credentials'
-
     }
-    stages{
-        stage('SCM'){
-            steps{
-            git branch: '${env.GIT_BRANCH}', url: '${env.SC_URL}'
-    
+    stages {
+        stage('SCM') {
+            steps {
+                git branch: "${env.GIT_BRANCH}", url: "${env.SC_URL}"
             }
         }
-        stage('build'){
-            steps{
-            sh ''' mvn clean package '''
-               
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
             }
         }
-        stage('Deploy'){
-            steps{
+        stage('Deploy') {
+            steps {
                 deploy adapters: [
                     tomcat8(credentialsId: env.CREDENTIALS_ID, 
                             path: '', 
@@ -33,7 +30,6 @@ pipeline{
                 ], 
                 contextPath: env.CONTEXT_PATH, 
                 war: env.WAR_FILE
-                }
             }
         }
     }
