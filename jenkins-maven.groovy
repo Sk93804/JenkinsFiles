@@ -2,10 +2,10 @@ pipeline {
     agent {
         label 'Slave1'
     }
-    options{
+    options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
-    // triggers{
+    // triggers {
     //     pollSCM('*/2 * * * *')
     // }
     environment {
@@ -19,18 +19,18 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                script{
-                    if(env.GIT_BRANCH == 'main'){
-                git branch: "${env.GIT_BRANCH}", url: "${env.SC_URL}"
+                script {
+                    if (env.GIT_BRANCH == 'main') {
+                        git branch: "${env.GIT_BRANCH}", url: "${env.SC_URL}"
                     } else {
-                        echo "Branch is not main , skipping the checkout"
+                        echo "Branch is not main, skipping the checkout"
                     }
+                }
             }
         }
         stage('Build') {
             steps {
                 sh 'mvn clean package'
-
             }
         }
         stage('Deploy') {
