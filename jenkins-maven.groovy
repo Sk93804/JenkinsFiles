@@ -45,4 +45,9 @@ pipeline {
             }
         }
     }
+    post{
+        success{
+            echo 'The pipeline has completed successfully'
+        }
+    }
 }
