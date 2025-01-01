@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-               gitCheckout('main', 'https://github.com/Sk93804/Maven-tomcat.git')
+               gitCheckout()
                sh ' ls -lrt'
             }
         }
