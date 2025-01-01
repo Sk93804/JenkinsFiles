@@ -8,7 +8,7 @@ pipeline{
         stage('SCM'){
             steps{
                 git branch: "${env.GIT_BRANCH}", url: "${env.SC_URL}"
-                ls-lrt
+               sh ' ls-lrt'
             }
         }
     }
