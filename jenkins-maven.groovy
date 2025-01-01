@@ -5,9 +5,9 @@ pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
-    // triggers {
-    //     pollSCM('*/2 * * * *')
-    // }
+    triggers {
+        pollSCM('*/2 * * * *')
+     } 
     environment {
         GIT_BRANCH = 'main'
         SC_URL = 'https://github.com/Sk93804/Maven-tomcat.git'
