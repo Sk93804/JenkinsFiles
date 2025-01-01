@@ -10,7 +10,7 @@ pipeline{
         }
         stage('build'){
             steps{
-                build(job: 'package')
+                build()
             }
         }
     }
