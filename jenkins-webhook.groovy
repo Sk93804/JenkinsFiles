@@ -8,5 +8,10 @@ pipeline{
                sh ' ls -lrt'
             }
         }
+        stage('build'){
+            steps{
+                build()
+            }
+        }
     }
 }   
