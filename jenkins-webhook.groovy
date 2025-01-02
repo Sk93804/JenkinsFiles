@@ -1,17 +1,17 @@
 @Library('SHARED_LIBRARY') _
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('SCM'){
-            steps{
-               gitCheckout()
-               sh ' ls -lrt'
+    stages {
+        stage('SCM') {
+            steps {
+                gitCheckout()
+                sh 'ls -lrt'
             }
         }
-        stage('build'){
-            steps{
-                build()
+        stage('Build') {
+            steps {
+                build('myJob') // Pass the required parameter
             }
         }
     }
-}   
+}
