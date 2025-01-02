@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                customBuild(goal: 'clean', name: 'package') // Pass the required parameter
+                customBuild() // Pass the required parameter
             }
         }
     }
