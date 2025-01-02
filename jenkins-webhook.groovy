@@ -13,5 +13,10 @@ pipeline {
                 customBuild() // Pass the required parameter
             }
         }
+        stage('Deploy'){
+            steps{
+                Deploy()
+            }
+        }
     }
 }
