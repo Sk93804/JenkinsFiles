@@ -3,7 +3,7 @@ pipeline {
     agent any
     options{
         script{
-            def buildNumToKeep: '10'
+            Map config = [buildNumToKeep: '10']
         }
         Options(buildNumToKeep)
     }
