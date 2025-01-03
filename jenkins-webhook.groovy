@@ -1,12 +1,7 @@
 @Library('SHARED_LIBRARY') _
 pipeline {
     agent any
-    options{
-        script{
-            Map config = [buildNumToKeep: '10']
-        }
-        Options(buildNumToKeep)
-    }
+      options { buildDiscarder(logRotator(numToKeepStr: '10')) }
     stages {
         stage('SCM') {
             steps {
