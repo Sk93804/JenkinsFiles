@@ -1,6 +1,12 @@
 @Library('SHARED_LIBRARY') _
 pipeline {
     agent any
+    options{
+        script{
+            def buildNumToKeep: '10'
+        }
+        Options(buildNumToKeep)
+    }
     stages {
         stage('SCM') {
             steps {
