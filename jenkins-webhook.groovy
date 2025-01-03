@@ -16,7 +16,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                customBuild() // Pass the required parameter
+                script{
+                    Map command = [goal: 'clean', option:'package']
+                customBuild(command) // Pass the required parameter
+                }
             }
         }
     }
