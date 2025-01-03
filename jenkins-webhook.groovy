@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script{
                     Map config = [
-                        url: 'https://github.com/Sk93804/Maven-tomcat.git'
+                        url: 'https://github.com/Sk93804/Maven-tomcat.git',
                         branch: 'main'
                     ]
                 }
