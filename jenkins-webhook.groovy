@@ -5,7 +5,7 @@ pipeline {
         stage('SCM') {
             steps {
                 script{
-                    def config[
+                    def config = [
                         url: 'https://github.com/Sk93804/Maven-tomcat.git'
                         branch: 'main'
                     ]
