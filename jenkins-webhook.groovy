@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                script{
+                script {
                     Map config = [
                         url: 'https://github.com/Sk93804/Maven-tomcat.git',
                         branch: 'main'
                     ]
+                    gitCheckout(config) // Directly calls the shared library function
                 }
-                gitCheckout()
                 sh 'ls -lrt'
             }
         }
